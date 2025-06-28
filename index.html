@@ -3,105 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mradul Umrao | Portfolio</title>
+  <title>Mradul Umrao | Cybersecurity & Physics Student</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body class="bg-black text-white font-sans relative">
   <!-- Background Canvas -->
   <canvas id="bgCanvas" class="fixed top-0 left-0 w-screen h-screen -z-10 pointer-events-none"></canvas>
 
   <!-- Header -->
-  <header class="text-center text-3xl font-bold p-6 animate__animated animate__fadeInDown">Mradul Umrao</header>
+  <header class="text-center py-10 animate__animated animate__fadeInDown">
+    <h1 class="text-4xl font-extrabold tracking-tight">Mradul Umrao</h1>
+    <p class="text-lg text-gray-400 mt-2">Cybersecurity & Physics Enthusiast | Simulation Developer | Startup Founder</p>
+    <div class="flex justify-center space-x-4 mt-4">
+      <a href="mailto:mradulumrao@gmail.com" class="text-gray-300 hover:text-white"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/liminal-mradul/" target="_blank" class="text-gray-300 hover:text-white"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/mradul-umrao-41a951370/" target="_blank" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </header>
 
   <!-- Main Container -->
-  <main class="max-w-5xl mx-auto px-4 space-y-10 py-10">
-    <!-- Personal Intro -->
+  <main class="max-w-5xl mx-auto px-4 space-y-16 py-8">
+    <!-- About Me -->
     <section class="animate__animated animate__fadeInUp animate__delay-1s">
-      <h2 class="text-xl font-semibold">About Me</h2>
-      <p class="text-gray-300 mt-2">
-        I’m Mradul Umrao, a 15-year-old student of Class 11, passionate about Cybersecurity, Physics, Simulation, and AI. I’ve been actively learning and building since Class 6. From building Three-Body simulations to participating in digital red-team ops (like Operation Sindoor), and founding a startup (SentinelAI), I have always been driven to understand, break, and build systems deeply.
+      <h2 class="text-2xl font-bold mb-2">About Me</h2>
+      <p class="text-gray-300">
+        I’m Mradul Umrao, a 15-year-old Class 11 student passionate about Cybersecurity, Physics, Simulation, and AI. I’ve been actively building since Class 6 — from creating a Three-Body physics engine to taking down unsecured platforms and founding AI-based defense tools.
       </p>
     </section>
 
     <!-- Summary -->
     <section class="animate__animated animate__fadeInUp animate__delay-2s">
-      <h2 class="text-xl font-semibold">Summary</h2>
-      <p class="text-gray-300 mt-2">
-        Self-taught researcher and ethical hacker. Strong background in physics, computer science, and simulations. Founder of two student startups and an early-stage innovator in AI cybersecurity solutions.
+      <h2 class="text-2xl font-bold mb-2">Summary</h2>
+      <p class="text-gray-300">
+        Self-taught cybersecurity researcher and ethical hacker with a foundation in classical and quantum physics. Founder of SentinelAI, an AI-powered security suite, and a student productivity app for coaching institutes. Skilled in simulations, red teaming, and analytical modeling.
       </p>
     </section>
 
     <!-- Skills -->
     <section class="animate__animated animate__fadeInUp animate__delay-3s">
-      <h2 class="text-xl font-semibold">Skills</h2>
-      <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
-        <li>Physics: Classical Mechanics, Quantum Theory, Chaos, String Theory</li>
-        <li>Cybersecurity: Pen Testing, Red Teaming, API Exploits, Web App Security, Social Engineering</li>
-        <li>Tools: Burp Suite, Wireshark, Nmap, Metasploit, Shodan, Kali Linux</li>
-        <li>Programming: Python, Shell Scripting</li>
-        <li>Scientific Libraries: NumPy, Matplotlib, SymPy</li>
-        <li>Web & AI: Three.js, WebGL, AI-based analysis and modeling</li>
+      <h2 class="text-2xl font-bold mb-2">Skills</h2>
+      <ul class="grid grid-cols-2 md:grid-cols-3 gap-2 text-gray-300 list-disc list-inside">
+        <li>Classical Mechanics, Quantum Physics, Chaos</li>
+        <li>Python, Shell Scripting, Web Exploits</li>
+        <li>Red Teaming, OSINT, API Exploitation</li>
+        <li>Burp Suite, Nmap, Metasploit, Shodan</li>
+        <li>NumPy, SymPy, Matplotlib, WebGL</li>
+        <li>Simulation & Research Modeling</li>
       </ul>
     </section>
 
     <!-- Cybersecurity Projects -->
     <section class="animate__animated animate__fadeInUp animate__delay-4s">
-      <h2 class="text-xl font-semibold">Cybersecurity Projects</h2>
-      <p class="text-gray-300 mt-2">Discovered vulnerabilities in PhysicsWallah, IoTWebPlanet, Esaral. Performed recon, endpoint enumeration, red teaming, and privilege escalation. Brought down a Pakistani media website during a national cyber operation as a duty for my nation—although I wasn’t state-supported, I acted independently with full conviction.</p>
+      <h2 class="text-2xl font-bold mb-2">Cybersecurity Projects</h2>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>Discovered critical vulnerabilities in PhysicsWallah, IoTWebPlanet, and Esaral.</li>
+        <li>Red team operations with endpoint enumeration, logic flaw discovery, and privilege escalation.</li>
+        <li>Brought down a Pakistani media website during a national cyber response—acting independently in service of the nation.</li>
+      </ul>
     </section>
 
-    <!-- Startup Work -->
+    <!-- Startup Experience -->
     <section class="animate__animated animate__fadeInUp animate__delay-5s">
-      <h2 class="text-xl font-semibold">Startup Vision</h2>
-      <ul class="text-gray-300 list-disc list-inside mt-2">
-        <li><strong>SentinelAI</strong>: AI-based kernel-level cybersecurity system for enterprise use.</li>
-        <li><strong>Student Productivity App</strong>: Designed to help coaching centers monitor and improve student progress.</li>
+      <h2 class="text-2xl font-bold mb-2">Startups</h2>
+      <ul class="list-disc list-inside text-gray-300">
+        <li><strong>SentinelAI:</strong> Kernel-integrated AI-powered cybersecurity platform for real-time threat control.</li>
+        <li><strong>Coaching Productivity App:</strong> A student-led tool to track and enhance academic performance remotely.</li>
       </ul>
     </section>
 
     <!-- Research Work -->
     <section class="animate__animated animate__fadeInUp animate__delay-6s">
-      <h2 class="text-xl font-semibold">Research Projects</h2>
-      <ul class="text-gray-300 list-disc list-inside mt-2">
-        <li>Chaos and Quantum Duality Hypothesis</li>
-        <li>Three-Body Simulation Engine (Python)</li>
-        <li>Collatz Conjecture Pattern Discovery</li>
-        <li>Monte Carlo π Estimator to 1000+ digits</li>
-        <li>Exploring Consciousness and Cosmic Simulation in Physics</li>
+      <h2 class="text-2xl font-bold mb-2">Research Projects</h2>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>Simulated three-body gravitational interaction with vector field rendering.</li>
+        <li>Exploratory model in chaos theory & quantum duality using Python.</li>
+        <li>Collatz Conjecture analysis across 1M+ numbers with fractal hypothesis testing.</li>
+        <li>π Estimation to 1000+ digits using Monte Carlo recursive integration.</li>
+        <li>Investigated cosmic simulation theory using Gödel limits & entropy logic.</li>
       </ul>
     </section>
 
     <!-- Education -->
     <section class="animate__animated animate__fadeInUp animate__delay-7s">
-      <h2 class="text-xl font-semibold">Education</h2>
-      <p class="text-gray-300 mt-2">Class 11 CBSE, Shri Ram Public School, Kanpur. Stream: PCM + CS</p>
+      <h2 class="text-2xl font-bold mb-2">Education</h2>
+      <p class="text-gray-300">Shri Ram Public School, Kanpur (CBSE Class 11) — PCM + CS Stream</p>
     </section>
 
     <!-- Awards -->
     <section class="animate__animated animate__fadeInUp animate__delay-8s">
-      <h2 class="text-xl font-semibold">Awards</h2>
-      <ul class="list-disc list-inside text-gray-300 mt-2 space-y-1">
-        <li>SOF NCO Rank 503 (Class 8)</li>
-        <li>SOF NCO Rank 256 (Class 9)</li>
-        <li>SOF ICSO Rank 104 (Class 10) – Zonal Gold</li>
-        <li>Google Launchpad Certified – Java, IT, Unity, Hacking</li>
-        <li>Programming Hero Ethical Hacking Completion</li>
+      <h2 class="text-2xl font-bold mb-2">Awards & Recognition</h2>
+      <ul class="list-disc list-inside text-gray-300">
+        <li>SOF ICSO Zonal Gold Medalist – Rank 104 (Class 10)</li>
+        <li>SOF NCO Rank 256 (Class 9), Rank 503 (Class 8)</li>
+        <li>Google Launchpad Scholar – Java, Unity, Python</li>
+        <li>Ethical Hacking Excellence Certification – Programming Hero</li>
       </ul>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Info -->
     <section class="animate__animated animate__fadeInUp animate__delay-9s">
-      <h2 class="text-xl font-semibold">Contact</h2>
-      <p class="text-gray-300 mt-2">📧 mradulumrao@gmail.com | 📍 Kanpur, India</p>
+      <h2 class="text-2xl font-bold mb-2">Get in Touch</h2>
+      <p class="text-gray-300 mb-2">📧 <a href="mailto:mradulumrao@gmail.com" class="underline">mradulumrao@gmail.com</a></p>
+      <p class="text-gray-300">📍 Kanpur, India</p>
     </section>
   </main>
 
   <script>
     // Three.js background
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 4;
 
     const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bgCanvas'), alpha: true });
@@ -120,20 +134,20 @@
       requestAnimationFrame(animate);
       torus.rotation.x += 0.005;
       torus.rotation.y += 0.01;
+      renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.render(scene, camera);
     }
     animate();
 
-    // Entry animation with Anime.js
+    // Animate entry
     anime({
       targets: 'section',
       opacity: [0, 1],
-      translateY: [50, 0],
-      delay: anime.stagger(300),
+      translateY: [60, 0],
+      delay: anime.stagger(200),
       duration: 1000,
       easing: 'easeOutExpo'
     });
   </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </body>
 </html>
