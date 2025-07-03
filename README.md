@@ -1,2 +1,2 @@
 # resume
-<a href="https://whoismradulumrao.netlify.app/preview.jpg"></a>
+<img src="https://whoismradulumrao.netlify.app/preview.jpg">
