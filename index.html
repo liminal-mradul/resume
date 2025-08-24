@@ -1,280 +1,408 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mradul Umrao | Cybersecurity & Physics Student</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Mradul Umrao | Cybersecurity Researcher & Physics Enthusiast</title>
+    <meta name="description" content="Explore the portfolio of Mradul Umrao, a student researcher specializing in cybersecurity, ethical hacking, and theoretical physics. Discover projects, research, and skills in Python, Rust, and offensive security.">
+    <meta name="keywords" content="Mradul Umrao, Cybersecurity, Physics, Researcher, Ethical Hacking, Python, Rust, Penetration Testing, Kanpur, India, Student Researcher">
+    <meta name="author" content="Mradul Umrao">
+    <meta property="og:title" content="Mradul Umrao | Cybersecurity Researcher & Physics Enthusiast" />
+    <meta property="og:description" content="Discover the work of Mradul Umrao, a driven student researcher at the intersection of cybersecurity and physics." />
+    <meta property="og:image" content="https://placehold.co/1200x630/111827/FFFFFF?text=Mradul+Umrao" />
+    <meta property="og:url" content="https://whoismradulumrao.netlify.app/" />
+    <meta name="twitter:card" content="summary_large_image" />
 
-  <meta name="description" content="Official portfolio of Mradul Umrao – 15-year-old cybersecurity researcher, simulation developer, and physics enthusiast from India. Connect on GitHub, LinkedIn, and more.">
-  <meta name="keywords" content="Mradul Umrao, Cybersecurity, Physics, AI, Simulation, Portfolio, Ethical Hacking, Student Innovator, India">
-  <meta name="author" content="Mradul Umrao">
-  <link rel="canonical" href="https://whoismradulumrao.netlify.app/" />
-
-  <meta property="og:title" content="Mradul Umrao | Cybersecurity & Physics Student">
-  <meta property="og:description" content="Portfolio of Mradul Umrao – cybersecurity researcher and simulation enthusiast.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://whoismradulumrao.netlify.app/">
-  <meta property="og:image" content="https://whoismradulumrao.netlify.app/preview.jpg">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mradul Umrao | Cybersecurity & Physics Student">
-  <meta name="twitter:description" content="Explore the official portfolio of Mradul Umrao – 15-year-old innovator in cybersecurity, physics and AI.">
-  <meta name="twitter:image" content="https://whoismradulumrao.netlify.app/preview.jpg">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mradul Umrao",
-    "url": "https://whoismradulumrao.netlify.app/",
-    "sameAs": [
-      "https://github.com/liminal-mradul",
-      "https://www.linkedin.com/in/mradul-umrao-41a951370/",
-      "mailto:mradulumrao@gmail.com",
-      "https://medium.com/@mradulumrao"
-    ],
-    "jobTitle": "Cybersecurity Researcher & Physics Student",
-    "worksFor": {
-      "@type": "Organisation",
-      "name": "OffensiveFalcon"
-    },
-    "studentOf": {
-      "@type": "EducationalOrganization",
-      "name": "Shri Ram Public School"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kanpur",
-      "addressCountry": "India"
-    }
-  }
-  </script>
-
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    /* Custom CSS for PageSpeed Insights LCP workaround and custom scrollbar */
-    body {
-      opacity: 0.01; /* Start with low opacity to allow Lighthouse to see content */
-      transition: opacity 0.5s ease-out; /* Smooth fade in for the body itself */
-    }
-    body.loaded {
-      opacity: 1;
-    }
-
-    .initial-hidden {
-      opacity: 0.01; /* Ensure these elements are visible to Lighthouse initially */
-    }
-
-    /* Custom scrollbar for blog container */
-    .custom-scrollbar::-webkit-scrollbar {
-      height: 8px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: #2d3748; /* Tailwind gray-800 */
-      border-radius: 10px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #4a5568; /* Tailwind gray-700 */
-      border-radius: 10px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: #718096; /* Tailwind gray-600 */
-    }
-  </style>
-</head>
-
-<body class="bg-black text-white font-sans relative overflow-x-hidden">
-  <canvas id="bgCanvas" class="fixed top-0 left-0 w-screen h-screen -z-10 pointer-events-none"></canvas>
-
-  <header class="text-center py-10 initial-hidden">
-    <h1 class="text-4xl font-extrabold tracking-tight">Mradul Umrao</h1>
-    <p class="text-lg text-gray-400 mt-2">Cybersecurity & Physics Enthusiast | Simulation Developer | Startup Founder</p>
-    <div class="flex justify-center space-x-4 mt-4">
-      <a href="mailto:mradulumrao@gmail.com" class="text-gray-300 hover:text-white"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/liminal-mradul" target="_blank" class="text-gray-300 hover:text-white"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/mradul-umrao-41a951370/" target="_blank" class="text-gray-300 hover:text-white"><i class="fab fa-linkedin"></i></a>
-      <a href="https://www.instagram.com/liminal_mradul/" target="_blank" class="text-gray-300 hover:text-white"><i class="fab fa-instagram"></i></a>
-      <a href="https://medium.com/@mradulumrao" target="_blank" class="text-gray-300 hover:text-white"><i class="fab fa-medium"></i></a>
-    </div>
-  </header>
-
-  <main class="max-w-5xl mx-auto px-4 space-y-16 py-8">
-    <section class="initial-hidden">
-      <h2 class="text-2xl font-bold mb-2">About Me</h2>
-      <p class="text-gray-300">
-        I’m Mradul Umrao, a 15-year-old Class 11 student passionate about Cybersecurity, Physics, Simulation, and AI. I’ve been actively building since Class 6 — from creating a Three-Body physics engine to taking down unsecured platforms and founding AI-based defense tools.
-      </p>
-    </section>
-
-    <section class="initial-hidden">
-      <h2 class="text-2xl font-bold mb-2">Summary</h2>
-      <p class="text-gray-300">
-        Self-taught cybersecurity researcher and ethical hacker with a foundation in classical and quantum physics. Founding SentinelAI, an AI-powered security suite, and Practicle an app for easing Educartion and connection in education industry. Skilled in simulations, red teaming, and analytical modeling.
-      </p>
-    </section>
-
-    <section class="initial-hidden">
-      <h2 class="text-2xl font-bold mb-2">Skills</h2>
-      <ul class="grid grid-cols-2 md:grid-cols-3 gap-2 text-gray-300 list-disc list-inside">
-        <li>Learning Classical Mechanics, Quantum Physics, Chaos</li>
-        <li>Python, Shell Scripting, Web Exploits</li>
-        <li>Red Teaming, OSINT, API Exploitation</li>
-        <li>Burp Suite, Nmap, Metasploit, Shodan</li>
-        <li>NumPy, SymPy, Matplotlib, WebGL</li>
-        <li>Simulation & Research Modeling</li>
-      </ul>
-    </section>
-
-    <section class="initial-hidden">
-      <h2 class="text-2xl font-bold mb-2">Cybersecurity Projects</h2>
-      <ul class="list-disc list-inside text-gray-300">
-        <li>Discovered critical vulnerabilities in PhysicsWallah, RSS, IoTWebPlanet, and Esaral.</li>
-        <li>Red team operations with endpoint enumeration, logic flaw discovery, and privilege escalation.</li>
-        <li>Brought down a Pakistani media website during a national cyber response—acting independently in service of the nation.</li>
-      </ul>
-    </section>
-
-    <section class="initial-hidden">
-      <h2 class="text-2xl font-bold mb-2">Startups</h2>
-      <ul class="list-disc list-inside text-gray-300">
-        <li><strong>SentinelAI:</strong> Kernel-integrated AI-powered cybersecurity platform for real-time threat control.</li>
-        <li><strong>PracticleStudent Productivity App:</strong> A student-led tool to track and enhance academic performance remotely.</li>
-      </ul>
-    </section>
-
-    <section class="initial-hidden">
-      <h2 class="text-2xl font-bold mb-2">Research Projects</h2>
-      <ul class="list-disc list-inside text-gray-300">
-          <li>Collatz Conjecture analysis across 1M+ numbers with fractal hypothesis testing.</li>
-          <li>π Estimation to 1000+ digits using Monte Carlo recursive integration.</li>
-          <li>Investigated cosmic simulation theory using Gödel limits & entropy logic.</li>
-      </ul>
-    </section>
-
-    <section class="initial-hidden">
-      <h2 class="text-2xl font-bold mb-2">My Latest Blogs</h2>
-      <div id="blogContainer" class="flex overflow-x-auto space-x-4 py-4 custom-scrollbar">
-        </div>
-    </section>
-
-    <section class="initial-hidden">
-      <h2 class="text-2xl font-bold mb-2">Education</h2>
-      <p class="text-gray-300">Shri Ram Public School, Kanpur (CBSE Class 11) — PCM + CS Stream</p>
-    </section>
-
-    <section class="initial-hidden">
-      <h2 class="text-2xl font-bold mb-2">Awards & Recognition</h2>
-      <ul class="list-disc list-inside text-gray-300">
-        <li>SOF ICSO Zonal Gold Medalist – Rank 104 (Class 10)</li>
-        <li>SOF NCO Rank 256 (Class 9), Rank 503 (Class 8)</li>
-        <li>Google Launchpad Scholar – Java, Unity, Python</li>
-        <li>Ethical Hacking Excellence Certification – Programming Hero</li>
-      </ul>
-    </section>
-
-    <section class="initial-hidden">
-      <h2 class="text-2xl font-bold mb-2">Get in Touch</h2>
-      <p class="text-gray-300 mb-2"><strong>Email:</strong> <a href="mailto:mradulumrao@gmail.com" class="underline">mradulumrao@gmail.com</a></p>
-      <p class="text-gray-300"><strong>Phone:</strong>+91 8726711697</p>
-      <p class="text-gray-300">📍 Kanpur, India</p>
-    </section>
-  </main>
-
-  <script>
-    // Three.js background
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 4;
-
-    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bgCanvas'), alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    const geometry = new THREE.TorusKnotGeometry(1, 0.3, 128, 32);
-    const material = new THREE.MeshStandardMaterial({ color: 0x00ffff, wireframe: true });
-    const torus = new THREE.Mesh(geometry, material);
-    scene.add(torus);
-
-    const light = new THREE.PointLight(0xffffff, 1);
-    light.position.set(5, 5, 5);
-    scene.add(light);
-
-    function animateThreeJS() {
-      requestAnimationFrame(animateThreeJS);
-      torus.rotation.x += 0.005;
-      torus.rotation.y += 0.01;
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.render(scene, camera);
-    }
-    animateThreeJS();
-
-    // Fade in the body once everything is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-        document.body.classList.add('loaded');
-    });
-
-
-    // Animate content sections using anime.js
-    anime({
-      targets: '.initial-hidden',
-      opacity: [0.01, 1], // Start from 0.01 to avoid LCP error
-      translateY: [60, 0],
-      delay: anime.stagger(150, { start: 200 }), // Adjusted delay for smoother staggered load
-      duration: 1000,
-      easing: 'easeOutExpo'
-    });
-
-    // Fetch and display Medium blogs
-    async function fetchMediumBlogs() {
-      const RSS_FEED_URL = 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@mradulumrao'; // Replace with your actual Medium username
-      const blogContainer = document.getElementById('blogContainer');
-
-      try {
-        const response = await fetch(RSS_FEED_URL);
-        const data = await response.json();
-
-        if (data.status === 'ok' && data.items.length > 0) {
-          data.items.slice(0, 5).forEach(post => { // Limit to 5 posts to keep it concise
-            const pubDate = new Date(post.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-            const title = post.title;
-            const link = post.link;
-            const description = post.description.replace(/<[^>]*>/g, '').substring(0, 150) + '...'; // Remove HTML tags and truncate
-
-            const blogCard = `
-              <a href="${link}" target="_blank" class="flex-none w-80 bg-gray-800 rounded-lg p-5 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden">
-                <h3 class="text-xl font-bold mb-2 text-white group-hover:text-cyan-400 line-clamp-2">${title}</h3>
-                <p class="text-gray-400 text-sm mb-3">${pubDate}</p>
-                <p class="text-gray-300 text-sm line-clamp-3">${description}</p>
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300"></div>
-                <div class="absolute bottom-4 left-5 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Read More <i class="fas fa-arrow-right ml-1"></i></div>
-              </a>
-            `;
-            blogContainer.innerHTML += blogCard;
-          });
-
-          // Animate the blog cards
-          anime({
-            targets: '#blogContainer .flex-none',
-            opacity: [0, 1],
-            translateX: [-50, 0],
-            delay: anime.stagger(100),
-            duration: 800,
-            easing: 'easeOutQuad'
-          });
-
-        } else {
-          blogContainer.innerHTML = '<p class="text-gray-400">Could not load blog posts at the moment.</p>';
-        }
-      } catch (error) {
-        console.error('Error fetching Medium blogs:', error);
-        blogContainer.innerHTML = '<p class="text-gray-400">Failed to load blog posts. Please try again later.</p>';
+    <!-- Schema.org for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mradul Umrao",
+      "url": "https://whoismradulumrao.netlify.app/",
+      "sameAs": [
+        "https://www.linkedin.com/in/mradul-umrao-41a951370/",
+        "https://github.com/liminal-mradul/",
+        "https://www.instagram.com/liminal_mradul/"
+      ],
+      "jobTitle": "Student Researcher",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Shri Ram Public School"
+      },
+      "alumniOf": "Shri Ram Public School",
+      "knowsAbout": ["Cybersecurity", "Physics", "Ethical Hacking", "Python", "Rust", "Chaos Theory", "Penetration Testing", "Vulnerability Discovery"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kanpur",
+        "addressRegion": "Uttar Pradesh",
+        "addressCountry": "IN"
       }
     }
+    </script>
 
-    fetchMediumBlogs();
-  </script>
+    <!-- Tailwind CSS & Anime.js -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Google Fonts: Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #030712; /* Dark blue-gray */
+            color: #d1d5db; /* Light gray text */
+        }
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.1;
+        }
+        .glow-effect {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4), 0 0 30px rgba(59, 130, 246, 0.2);
+        }
+        .section-title {
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+        }
+        .card {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(55, 65, 81, 0.5);
+        }
+        .tag {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <canvas id="matrix-canvas" class="matrix-bg"></canvas>
+
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white tracking-wider">MRADUL UMRAO</a>
+            <nav class="hidden md:flex space-x-8 text-lg">
+                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-blue-400 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+            </nav>
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-90">
+             <a href="#about" class="block text-center py-3 hover:bg-gray-800">About</a>
+             <a href="#skills" class="block text-center py-3 hover:bg-gray-800">Skills</a>
+             <a href="#projects" class="block text-center py-3 hover:bg-gray-800">Projects</a>
+             <a href="#contact" class="block text-center py-3 hover:bg-gray-800">Contact</a>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center text-center px-4">
+            <div>
+                <h1 class="text-4xl md:text-7xl font-bold text-white leading-tight tracking-tighter hero-title"></h1>
+                <h2 class="text-xl md:text-3xl text-blue-300 mt-4 hero-subtitle">Student Researcher | Physics + Cyber Security Enthusiast</h2>
+                <div class="mt-8 space-x-4 hero-cta">
+                    <a href="#projects" class="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105">View My Work</a>
+                    <a href="Resume.pdf" target="_blank" class="border-2 border-blue-500 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-500 hover:text-white transition-all transform hover:scale-105">Download CV</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 px-4">
+            <div class="container mx-auto max-w-4xl">
+                <h3 class="section-title text-4xl font-bold text-center mb-12 text-blue-300">About Me</h3>
+                <div class="card p-8 rounded-xl text-center text-lg leading-relaxed space-y-4 animate-on-scroll">
+                    <p>I am a driven and self-taught cybersecurity enthusiast and researcher with a strong foundation in physics and computer science. My work focuses on identifying real-world vulnerabilities, contributing to offensive security efforts, and exploring the theoretical limits of computation and reality.</p>
+                    <p>From simulating the N-body problem to discovering security flaws in web applications, I am passionate about applying my skills to solve complex challenges at the intersection of the digital and physical worlds.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 px-4 bg-gray-900/50">
+            <div class="container mx-auto">
+                <h3 class="section-title text-4xl font-bold text-center mb-12 text-blue-300">Core Competencies</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card p-6 rounded-xl animate-on-scroll">
+                        <h4 class="text-2xl font-bold text-white mb-3">Cybersecurity & Hacking</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-3 py-1 rounded-full text-sm">Penetration Testing</span>
+                            <span class="tag px-3 py-1 rounded-full text-sm">Web App Security</span>
+                            <span class="tag px-3 py-1 rounded-full text-sm">API Exploitation</span>
+                            <span class="tag px-3 py-1 rounded-full text-sm">Vulnerability Discovery</span>
+                            <span class="tag px-3 py-1 rounded-full text-sm">OSINT</span>
+                        </div>
+                    </div>
+                    <div class="card p-6 rounded-xl animate-on-scroll">
+                        <h4 class="text-2xl font-bold text-white mb-3">Physics & Research</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-3 py-1 rounded-full text-sm">Classical Mechanics</span>
+                            <span class="tag px-3 py-1 rounded-full text-sm">Chaos Theory</span>
+                            <span class="tag px-3 py-1 rounded-full text-sm">Metaphysics</span>
+                            <span class="tag px-3 py-1 rounded-full text-sm">Numerical Simulation</span>
+                        </div>
+                    </div>
+                     <div class="card p-6 rounded-xl animate-on-scroll">
+                        <h4 class="text-2xl font-bold text-white mb-3">Programming & Tools</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="tag px-3 py-1 rounded-full text-sm">Rust</span>
+                            <span class="tag px-3 py-1 rounded-full text-sm">Shell Scripting</span>
+                            <span class="tag px-3 py-1 rounded-full text-sm">Burp Suite</span>
+                             <span class="tag px-3 py-1 rounded-full text-sm">Nmap</span>
+                            <span class="tag px-3 py-1 rounded-full text-sm">Linux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 px-4">
+            <div class="container mx-auto">
+                <h3 class="section-title text-4xl font-bold text-center mb-12 text-blue-300">Featured Projects</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Projects will be injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-4 bg-gray-900/50">
+            <div class="container mx-auto max-w-3xl text-center">
+                <h3 class="section-title text-4xl font-bold text-blue-300 mb-4">Get In Touch</h3>
+                <p class="text-lg mb-8">I'm always open to discussing new projects, research, or opportunities. Feel free to reach out.</p>
+                <a href="mailto:mradulumrao@gmail.com" class="inline-block bg-blue-600 text-white font-semibold text-lg py-3 px-10 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105">mradulumrao@gmail.com</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-8 text-center text-gray-400">
+        <div class="container mx-auto">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://github.com/liminal-mradul/" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+                <a href="https://www.linkedin.com/in/mradul-umrao-41a951370/" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                <a href="https://www.instagram.com/liminal_mradul/" target="_blank" class="hover:text-white transition-colors">Instagram</a>
+            </div>
+            <p>&copy; 2025 Mradul Umrao. All rights reserved.</p>
+            <p class="text-sm text-gray-500 mt-1">Designed & Built by Mradul Umrao</p>
+        </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Matrix Background Animation ---
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    characters = characters.split('');
+
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+    for (let x = 0; x < columns; x++) {
+        drops[x] = 1;
+    }
+
+    function drawMatrix() {
+        ctx.fillStyle = 'rgba(3, 7, 18, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        ctx.fillStyle = '#3b82f6'; // Blue color
+        ctx.font = fontSize + 'px arial';
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = characters[Math.floor(Math.random() * characters.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+    setInterval(drawMatrix, 50);
+
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+
+    // --- Navbar Scroll Effect ---
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
+        } else {
+            navbar.classList.remove('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
+        }
+    });
+
+    // --- Mobile Menu Toggle ---
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // --- Hero Text Animation ---
+    const heroTitle = document.querySelector('.hero-title');
+    const text = "Mradul Umrao";
+    heroTitle.innerHTML = text.split("").map(letter => `<span>${letter}</span>`).join("");
+
+    anime.timeline({ loop: false })
+        .add({
+            targets: '.hero-title span',
+            translateY: [-600, 0],
+            scale: [10, 1],
+            opacity: [0, 1],
+            easing: 'easeOutExpo',
+            duration: 1500,
+            delay: anime.stagger(100)
+        })
+        .add({
+            targets: '.hero-subtitle, .hero-cta',
+            opacity: [0, 1],
+            translateY: [20, 0],
+            easing: 'easeOutExpo',
+            duration: 1200,
+            offset: '-=1000'
+        });
+
+    // --- Scroll Animations ---
+    const scrollElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                anime({
+                    targets: entry.target,
+                    translateY: [50, 0],
+                    opacity: [0, 1],
+                    scale: [0.95, 1],
+                    duration: 800,
+                    easing: 'easeOutCubic'
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    scrollElements.forEach(el => observer.observe(el));
+
+    // --- Project Data & Injection ---
+    const projects = [
+        {
+            title: "Aegis - Distributed VCS",
+            description: "A Git alternative in Rust focusing on cryptographic security and immutability, using BLAKE3 hashing and Ed25519 signatures.",
+            tags: ["Rust", "Cryptography", "VCS"],
+            link: "https://github.com/liminal-mradul/aegis"
+        },
+        {
+            title: "AegisNet - P2P Network",
+            description: "A decentralized, peer-to-peer network for a version control system built with Python, enabling autonomous node synchronization.",
+            tags: ["Python", "P2P", "Networking"],
+            link: "https://github.com/liminal-mradul/AegisNet"
+        },
+        {
+            title: "Aegis Browser (In Development)",
+            description: "Constructing a multi-tab web browser with Python and the PyQt6 framework, integrating the Qt WebEngine for rendering.",
+            tags: ["Python", "GUI", "PyQt6", "Web Browser"],
+            link: "#"
+        },
+        {
+            title: "Ethical Hacking & Bug Discovery",
+            description: "Identified and reported vulnerabilities in platforms like PhysicsWallah, IoTWebPlanet, involving insecure APIs and data exposure.",
+            tags: ["Red Teaming", "Bug Bounty", "API Security"],
+            link: "#"
+        },
+        {
+            title: "Operation Sindoor - Cyber Ops",
+            description: "Participated independently in Indian digital retaliation efforts by exploiting and weakening adversarial websites and infrastructure.",
+            tags: ["Offensive Security", "Cyber Operations"],
+            link: "#"
+        },
+        {
+            title: "N-Body Problem Simulation",
+            description: "Simulated and visualized a classical three-body problem in Python, modeling gravitational interactions with high-fidelity numerical integration.",
+            tags: ["Python", "Physics", "Simulation", "Matplotlib"],
+            link: "#"
+        },
+        {
+            title: "Collatz Conjecture Analysis",
+            description: "Analyzed patterns in the Collatz sequence for 1 million numbers using an optimized Python algorithm and trained a predictive ML model.",
+            tags: ["Python", "Machine Learning", "Mathematics"],
+            link: "#"
+        },
+        {
+            title: "Adaptive Monte Carlo for Pi",
+            description: "Developed a sophisticated numerical integration method to estimate Pi, combining Adaptive and Quasi-Monte Carlo sampling.",
+            tags: ["Python", "Algorithms", "Numerical Methods"],
+            link: "#"
+        },
+        {
+            title: "Research: Chaos & Quantum Duality",
+            description: "Conducting independent research on chaos theory and its applications to classical physics, working toward a unified perspective with quantum duality.",
+            tags: ["Research", "Physics", "Chaos Theory"],
+            link: "#"
+        },
+        {
+            title: "Writing: Uncompromising Python",
+            description: "Authoring a comprehensive guide covering Python from basics to advanced concepts with real-world, portfolio-worthy projects.",
+            tags: ["Writing", "Python", "Education"],
+            link: "#"
+        },
+        {
+            title: "Writing: Through Different Eyes",
+            description: "A deep exploration of how we perceive reality, blending psychology, philosophy, and neuroscience to reveal why no two people see the same world.",
+            tags: ["Writing", "Philosophy", "Psychology"],
+            link: "#"
+        }
+    ];
+
+    const projectsContainer = document.querySelector('#projects .grid');
+    projects.forEach((project, index) => {
+        const projectEl = document.createElement('div');
+        projectEl.classList.add('card', 'p-6', 'rounded-xl', 'flex', 'flex-col', 'animate-on-scroll', 'transition-all', 'duration-300', 'hover:border-blue-500', 'hover:shadow-2xl', 'hover:shadow-blue-500/10');
+        projectEl.style.opacity = '0'; // Initially hide for animation
+        
+        let tagsHTML = project.tags.map(tag => `<span class="tag px-3 py-1 rounded-full text-sm">${tag}</span>`).join('');
+        
+        projectEl.innerHTML = `
+            <h4 class="text-2xl font-bold text-white mb-2">${project.title}</h4>
+            <p class="text-gray-400 flex-grow mb-4">${project.description}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+                ${tagsHTML}
+            </div>
+            ${project.link !== '#' ? `<a href="${project.link}" target="_blank" class="text-blue-400 font-semibold mt-auto hover:underline">View Project &rarr;</a>` : ''}
+        `;
+        projectsContainer.appendChild(projectEl);
+        observer.observe(projectEl);
+    });
+});
+</script>
+
 </body>
 </html>
