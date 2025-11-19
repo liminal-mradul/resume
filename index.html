@@ -1,408 +1,314 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Mradul Umrao | Cybersecurity Researcher & Physics Enthusiast</title>
-    <meta name="description" content="Explore the portfolio of Mradul Umrao, a student researcher specializing in cybersecurity, ethical hacking, and theoretical physics. Discover projects, research, and skills in Python, Rust, and offensive security.">
-    <meta name="keywords" content="Mradul Umrao, Cybersecurity, Physics, Researcher, Ethical Hacking, Python, Rust, Penetration Testing, Kanpur, India, Student Researcher">
-    <meta name="author" content="Mradul Umrao">
-    <meta property="og:title" content="Mradul Umrao | Cybersecurity Researcher & Physics Enthusiast" />
-    <meta property="og:description" content="Discover the work of Mradul Umrao, a driven student researcher at the intersection of cybersecurity and physics." />
-    <meta property="og:image" content="https://placehold.co/1200x630/111827/FFFFFF?text=Mradul+Umrao" />
-    <meta property="og:url" content="https://whoismradulumrao.netlify.app/" />
-    <meta name="twitter:card" content="summary_large_image" />
+import React, { useState, useEffect } from 'react';
+import { Github, Linkedin, Instagram, Mail, ExternalLink, ArrowRight, Calendar, MapPin } from 'lucide-react';
 
-    <!-- Schema.org for Rich Snippets -->
-    <script type="application/ld+json">
+export default function Portfolio() {
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+      
+      const sections = document.querySelectorAll('section[id]');
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          setActiveSection(section.id);
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const experiences = [
     {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Mradul Umrao",
-      "url": "https://whoismradulumrao.netlify.app/",
-      "sameAs": [
-        "https://www.linkedin.com/in/mradul-umrao-41a951370/",
-        "https://github.com/liminal-mradul/",
-        "https://www.instagram.com/liminal_mradul/"
-      ],
-      "jobTitle": "Student Researcher",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Shri Ram Public School"
-      },
-      "alumniOf": "Shri Ram Public School",
-      "knowsAbout": ["Cybersecurity", "Physics", "Ethical Hacking", "Python", "Rust", "Chaos Theory", "Penetration Testing", "Vulnerability Discovery"],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Kanpur",
-        "addressRegion": "Uttar Pradesh",
-        "addressCountry": "IN"
-      }
+      year: "2024-25",
+      items: [
+        { title: "Winner - Techfest SparkX (AI/ML Quiz)", org: "IIT Bombay Zonals", desc: "Top 5 shortlist for Round 2" },
+        { title: "Founder - Next Founder", org: "Entrepreneurship Community", desc: "100+ active participants" },
+        { title: "Research Paper Completion", org: "Independent Research", desc: "9 months on Chaos Theory & Quantum Duality" }
+      ]
+    },
+    {
+      year: "2024",
+      items: [
+        { title: "Participant - Daydream Delhi", org: "Game Development", desc: "Built and showcased game project" },
+        { title: "Active Member - Hack Club", org: "Global Tech Community", desc: "Contributing to open source" },
+        { title: "Mentor", org: "Personal Initiative", desc: "Mentoring Arnab Das, Jishan, and Roshani" }
+      ]
+    },
+    {
+      year: "2023-24",
+      items: [
+        { title: "Security Researcher", org: "Bug Bounty & Ethical Hacking", desc: "PhysicsWallah, IoTWebPlanet vulnerabilities" },
+        { title: "Operation Sindoor", org: "Cyber Operations", desc: "Offensive security operations" }
+      ]
     }
-    </script>
+  ];
 
-    <!-- Tailwind CSS & Anime.js -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    
-    <!-- Google Fonts: Space Grotesk -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: #030712; /* Dark blue-gray */
-            color: #d1d5db; /* Light gray text */
-        }
-        .matrix-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.1;
-        }
-        .glow-effect {
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4), 0 0 30px rgba(59, 130, 246, 0.2);
-        }
-        .section-title {
-            text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
-        }
-        .card {
-            background: rgba(17, 24, 39, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(55, 65, 81, 0.5);
-        }
-        .tag {
-            background-color: rgba(59, 130, 246, 0.1);
-            color: #60a5fa;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-    </style>
-</head>
-<body class="antialiased">
-
-    <canvas id="matrix-canvas" class="matrix-bg"></canvas>
-
-    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white tracking-wider">MRADUL UMRAO</a>
-            <nav class="hidden md:flex space-x-8 text-lg">
-                <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
-                <a href="#skills" class="hover:text-blue-400 transition-colors">Skills</a>
-                <a href="#projects" class="hover:text-blue-400 transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
-            </nav>
-            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
-                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-90">
-             <a href="#about" class="block text-center py-3 hover:bg-gray-800">About</a>
-             <a href="#skills" class="block text-center py-3 hover:bg-gray-800">Skills</a>
-             <a href="#projects" class="block text-center py-3 hover:bg-gray-800">Projects</a>
-             <a href="#contact" class="block text-center py-3 hover:bg-gray-800">Contact</a>
-        </div>
-    </header>
-
-    <main class="relative z-10">
-
-        <!-- Hero Section -->
-        <section id="hero" class="min-h-screen flex items-center justify-center text-center px-4">
-            <div>
-                <h1 class="text-4xl md:text-7xl font-bold text-white leading-tight tracking-tighter hero-title"></h1>
-                <h2 class="text-xl md:text-3xl text-blue-300 mt-4 hero-subtitle">Student Researcher | Physics + Cyber Security Enthusiast</h2>
-                <div class="mt-8 space-x-4 hero-cta">
-                    <a href="#projects" class="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105">View My Work</a>
-                    <a href="Resume.pdf" target="_blank" class="border-2 border-blue-500 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-500 hover:text-white transition-all transform hover:scale-105">Download CV</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="py-20 px-4">
-            <div class="container mx-auto max-w-4xl">
-                <h3 class="section-title text-4xl font-bold text-center mb-12 text-blue-300">About Me</h3>
-                <div class="card p-8 rounded-xl text-center text-lg leading-relaxed space-y-4 animate-on-scroll">
-                    <p>I am a driven and self-taught cybersecurity enthusiast and researcher with a strong foundation in physics and computer science. My work focuses on identifying real-world vulnerabilities, contributing to offensive security efforts, and exploring the theoretical limits of computation and reality.</p>
-                    <p>From simulating the N-body problem to discovering security flaws in web applications, I am passionate about applying my skills to solve complex challenges at the intersection of the digital and physical worlds.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-20 px-4 bg-gray-900/50">
-            <div class="container mx-auto">
-                <h3 class="section-title text-4xl font-bold text-center mb-12 text-blue-300">Core Competencies</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card p-6 rounded-xl animate-on-scroll">
-                        <h4 class="text-2xl font-bold text-white mb-3">Cybersecurity & Hacking</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag px-3 py-1 rounded-full text-sm">Penetration Testing</span>
-                            <span class="tag px-3 py-1 rounded-full text-sm">Web App Security</span>
-                            <span class="tag px-3 py-1 rounded-full text-sm">API Exploitation</span>
-                            <span class="tag px-3 py-1 rounded-full text-sm">Vulnerability Discovery</span>
-                            <span class="tag px-3 py-1 rounded-full text-sm">OSINT</span>
-                        </div>
-                    </div>
-                    <div class="card p-6 rounded-xl animate-on-scroll">
-                        <h4 class="text-2xl font-bold text-white mb-3">Physics & Research</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag px-3 py-1 rounded-full text-sm">Classical Mechanics</span>
-                            <span class="tag px-3 py-1 rounded-full text-sm">Chaos Theory</span>
-                            <span class="tag px-3 py-1 rounded-full text-sm">Metaphysics</span>
-                            <span class="tag px-3 py-1 rounded-full text-sm">Numerical Simulation</span>
-                        </div>
-                    </div>
-                     <div class="card p-6 rounded-xl animate-on-scroll">
-                        <h4 class="text-2xl font-bold text-white mb-3">Programming & Tools</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="tag px-3 py-1 rounded-full text-sm">Rust</span>
-                            <span class="tag px-3 py-1 rounded-full text-sm">Shell Scripting</span>
-                            <span class="tag px-3 py-1 rounded-full text-sm">Burp Suite</span>
-                             <span class="tag px-3 py-1 rounded-full text-sm">Nmap</span>
-                            <span class="tag px-3 py-1 rounded-full text-sm">Linux</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 px-4">
-            <div class="container mx-auto">
-                <h3 class="section-title text-4xl font-bold text-center mb-12 text-blue-300">Featured Projects</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Projects will be injected by JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 px-4 bg-gray-900/50">
-            <div class="container mx-auto max-w-3xl text-center">
-                <h3 class="section-title text-4xl font-bold text-blue-300 mb-4">Get In Touch</h3>
-                <p class="text-lg mb-8">I'm always open to discussing new projects, research, or opportunities. Feel free to reach out.</p>
-                <a href="mailto:mradulumrao@gmail.com" class="inline-block bg-blue-600 text-white font-semibold text-lg py-3 px-10 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105">mradulumrao@gmail.com</a>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="py-8 text-center text-gray-400">
-        <div class="container mx-auto">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="https://github.com/liminal-mradul/" target="_blank" class="hover:text-white transition-colors">GitHub</a>
-                <a href="https://www.linkedin.com/in/mradul-umrao-41a951370/" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
-                <a href="https://www.instagram.com/liminal_mradul/" target="_blank" class="hover:text-white transition-colors">Instagram</a>
-            </div>
-            <p>&copy; 2025 Mradul Umrao. All rights reserved.</p>
-            <p class="text-sm text-gray-500 mt-1">Designed & Built by Mradul Umrao</p>
-        </div>
-    </footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-
-    // --- Matrix Background Animation ---
-    const canvas = document.getElementById('matrix-canvas');
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    characters = characters.split('');
-
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = [];
-    for (let x = 0; x < columns; x++) {
-        drops[x] = 1;
+  const projects = [
+    {
+      title: "Aegis VCS",
+      description: "Distributed version control system built in Rust with cryptographic security, BLAKE3 hashing, and Ed25519 signatures.",
+      tech: ["Rust", "Cryptography", "Systems"],
+      category: "Systems"
+    },
+    {
+      title: "AegisNet",
+      description: "Decentralized P2P network enabling autonomous node synchronization for distributed version control.",
+      tech: ["Python", "Networking", "P2P"],
+      category: "Network"
+    },
+    {
+      title: "Aegis Browser",
+      description: "Multi-tab web browser with PyQt6 framework, integrating Qt WebEngine for modern web rendering.",
+      tech: ["Python", "PyQt6", "GUI"],
+      category: "Application"
+    },
+    {
+      title: "N-Body Simulation",
+      description: "Classical three-body gravitational problem with high-fidelity numerical integration and visualization.",
+      tech: ["Python", "Physics", "NumPy"],
+      category: "Research"
+    },
+    {
+      title: "Collatz Analysis",
+      description: "Pattern analysis of Collatz sequence across 1M numbers with predictive machine learning model.",
+      tech: ["Python", "ML", "Mathematics"],
+      category: "Research"
+    },
+    {
+      title: "Security Research",
+      description: "Vulnerability discovery and responsible disclosure in production web applications and APIs.",
+      tech: ["Red Teaming", "OSINT", "Web Security"],
+      category: "Security"
     }
+  ];
 
-    function drawMatrix() {
-        ctx.fillStyle = 'rgba(3, 7, 18, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        ctx.fillStyle = '#3b82f6'; // Blue color
-        ctx.font = fontSize + 'px arial';
+  const writings = [
+    { title: "Uncompromising Python", desc: "Comprehensive guide from basics to advanced concepts with portfolio projects" },
+    { title: "Through Different Eyes", desc: "Exploring perception through psychology, philosophy, and neuroscience" },
+    { title: "Chaos & Quantum Duality", desc: "Research paper on chaos theory applications in classical physics" }
+  ];
 
-        for (let i = 0; i < drops.length; i++) {
-            const text = characters[Math.floor(Math.random() * characters.length)];
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
-            }
-            drops[i]++;
-        }
-    }
-    setInterval(drawMatrix, 50);
-
-    window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
-
-    // --- Navbar Scroll Effect ---
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
-        } else {
-            navbar.classList.remove('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
-        }
-    });
-
-    // --- Mobile Menu Toggle ---
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    // --- Hero Text Animation ---
-    const heroTitle = document.querySelector('.hero-title');
-    const text = "Mradul Umrao";
-    heroTitle.innerHTML = text.split("").map(letter => `<span>${letter}</span>`).join("");
-
-    anime.timeline({ loop: false })
-        .add({
-            targets: '.hero-title span',
-            translateY: [-600, 0],
-            scale: [10, 1],
-            opacity: [0, 1],
-            easing: 'easeOutExpo',
-            duration: 1500,
-            delay: anime.stagger(100)
-        })
-        .add({
-            targets: '.hero-subtitle, .hero-cta',
-            opacity: [0, 1],
-            translateY: [20, 0],
-            easing: 'easeOutExpo',
-            duration: 1200,
-            offset: '-=1000'
-        });
-
-    // --- Scroll Animations ---
-    const scrollElements = document.querySelectorAll('.animate-on-scroll');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                anime({
-                    targets: entry.target,
-                    translateY: [50, 0],
-                    opacity: [0, 1],
-                    scale: [0.95, 1],
-                    duration: 800,
-                    easing: 'easeOutCubic'
-                });
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    scrollElements.forEach(el => observer.observe(el));
-
-    // --- Project Data & Injection ---
-    const projects = [
-        {
-            title: "Aegis - Distributed VCS",
-            description: "A Git alternative in Rust focusing on cryptographic security and immutability, using BLAKE3 hashing and Ed25519 signatures.",
-            tags: ["Rust", "Cryptography", "VCS"],
-            link: "https://github.com/liminal-mradul/aegis"
-        },
-        {
-            title: "AegisNet - P2P Network",
-            description: "A decentralized, peer-to-peer network for a version control system built with Python, enabling autonomous node synchronization.",
-            tags: ["Python", "P2P", "Networking"],
-            link: "https://github.com/liminal-mradul/AegisNet"
-        },
-        {
-            title: "Aegis Browser (In Development)",
-            description: "Constructing a multi-tab web browser with Python and the PyQt6 framework, integrating the Qt WebEngine for rendering.",
-            tags: ["Python", "GUI", "PyQt6", "Web Browser"],
-            link: "#"
-        },
-        {
-            title: "Ethical Hacking & Bug Discovery",
-            description: "Identified and reported vulnerabilities in platforms like PhysicsWallah, IoTWebPlanet, involving insecure APIs and data exposure.",
-            tags: ["Red Teaming", "Bug Bounty", "API Security"],
-            link: "#"
-        },
-        {
-            title: "Operation Sindoor - Cyber Ops",
-            description: "Participated independently in Indian digital retaliation efforts by exploiting and weakening adversarial websites and infrastructure.",
-            tags: ["Offensive Security", "Cyber Operations"],
-            link: "#"
-        },
-        {
-            title: "N-Body Problem Simulation",
-            description: "Simulated and visualized a classical three-body problem in Python, modeling gravitational interactions with high-fidelity numerical integration.",
-            tags: ["Python", "Physics", "Simulation", "Matplotlib"],
-            link: "#"
-        },
-        {
-            title: "Collatz Conjecture Analysis",
-            description: "Analyzed patterns in the Collatz sequence for 1 million numbers using an optimized Python algorithm and trained a predictive ML model.",
-            tags: ["Python", "Machine Learning", "Mathematics"],
-            link: "#"
-        },
-        {
-            title: "Adaptive Monte Carlo for Pi",
-            description: "Developed a sophisticated numerical integration method to estimate Pi, combining Adaptive and Quasi-Monte Carlo sampling.",
-            tags: ["Python", "Algorithms", "Numerical Methods"],
-            link: "#"
-        },
-        {
-            title: "Research: Chaos & Quantum Duality",
-            description: "Conducting independent research on chaos theory and its applications to classical physics, working toward a unified perspective with quantum duality.",
-            tags: ["Research", "Physics", "Chaos Theory"],
-            link: "#"
-        },
-        {
-            title: "Writing: Uncompromising Python",
-            description: "Authoring a comprehensive guide covering Python from basics to advanced concepts with real-world, portfolio-worthy projects.",
-            tags: ["Writing", "Python", "Education"],
-            link: "#"
-        },
-        {
-            title: "Writing: Through Different Eyes",
-            description: "A deep exploration of how we perceive reality, blending psychology, philosophy, and neuroscience to reveal why no two people see the same world.",
-            tags: ["Writing", "Philosophy", "Psychology"],
-            link: "#"
-        }
-    ];
-
-    const projectsContainer = document.querySelector('#projects .grid');
-    projects.forEach((project, index) => {
-        const projectEl = document.createElement('div');
-        projectEl.classList.add('card', 'p-6', 'rounded-xl', 'flex', 'flex-col', 'animate-on-scroll', 'transition-all', 'duration-300', 'hover:border-blue-500', 'hover:shadow-2xl', 'hover:shadow-blue-500/10');
-        projectEl.style.opacity = '0'; // Initially hide for animation
-        
-        let tagsHTML = project.tags.map(tag => `<span class="tag px-3 py-1 rounded-full text-sm">${tag}</span>`).join('');
-        
-        projectEl.innerHTML = `
-            <h4 class="text-2xl font-bold text-white mb-2">${project.title}</h4>
-            <p class="text-gray-400 flex-grow mb-4">${project.description}</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-                ${tagsHTML}
+  return (
+    <div className="min-h-screen bg-zinc-50 text-zinc-900">
+      {/* Navigation */}
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
+        <div className="max-w-5xl mx-auto px-6 py-4">
+          <div className="flex justify-between items-center">
+            <a href="#hero" className="text-lg font-medium tracking-tight">Mradul Umrao</a>
+            <div className="flex gap-8 text-sm">
+              <a href="#work" className={`transition-colors ${activeSection === 'work' ? 'text-zinc-900' : 'text-zinc-500 hover:text-zinc-900'}`}>Work</a>
+              <a href="#projects" className={`transition-colors ${activeSection === 'projects' ? 'text-zinc-900' : 'text-zinc-500 hover:text-zinc-900'}`}>Projects</a>
+              <a href="#research" className={`transition-colors ${activeSection === 'research' ? 'text-zinc-900' : 'text-zinc-500 hover:text-zinc-900'}`}>Research</a>
+              <a href="#contact" className={`transition-colors ${activeSection === 'contact' ? 'text-zinc-900' : 'text-zinc-500 hover:text-zinc-900'}`}>Contact</a>
             </div>
-            ${project.link !== '#' ? `<a href="${project.link}" target="_blank" class="text-blue-400 font-semibold mt-auto hover:underline">View Project &rarr;</a>` : ''}
-        `;
-        projectsContainer.appendChild(projectEl);
-        observer.observe(projectEl);
-    });
-});
-</script>
+          </div>
+        </div>
+      </nav>
 
-</body>
-</html>
+      {/* Hero */}
+      <section id="hero" className="pt-32 pb-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-900 text-white text-xs rounded-full mb-6">
+              <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
+              Available for opportunities
+            </div>
+            <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-6 leading-tight">
+              Student researcher exploring the intersection of physics, security, and computation
+            </h1>
+            <p className="text-xl text-zinc-600 mb-8 leading-relaxed">
+              3 years of hands-on experience in cybersecurity and development. 
+              Currently preparing for IMO and IOI while building communities and mentoring the next generation.
+            </p>
+            <div className="flex items-center gap-4 text-sm text-zinc-600">
+              <div className="flex items-center gap-1.5">
+                <MapPin className="w-4 h-4" />
+                Kanpur, India
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Calendar className="w-4 h-4" />
+                5 years enthusiast
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Timeline */}
+      <section id="work" className="py-20 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-sm uppercase tracking-wider text-zinc-500 mb-12">Experience & Achievements</h2>
+          <div className="space-y-16">
+            {experiences.map((yearGroup, idx) => (
+              <div key={idx}>
+                <div className="text-sm font-medium text-zinc-400 mb-6">{yearGroup.year}</div>
+                <div className="space-y-8">
+                  {yearGroup.items.map((item, i) => (
+                    <div key={i} className="group">
+                      <div className="flex items-start gap-4">
+                        <div className="w-1.5 h-1.5 rounded-full bg-zinc-900 mt-2 group-hover:scale-150 transition-transform"></div>
+                        <div className="flex-1">
+                          <div className="flex items-start justify-between mb-2">
+                            <div>
+                              <h3 className="font-medium text-lg mb-1">{item.title}</h3>
+                              <p className="text-sm text-zinc-500">{item.org}</p>
+                            </div>
+                          </div>
+                          <p className="text-zinc-600">{item.desc}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Grid */}
+      <section id="projects" className="py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-sm uppercase tracking-wider text-zinc-500 mb-12">Selected Projects</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.map((project, idx) => (
+              <div key={idx} className="group border border-zinc-200 rounded-lg p-6 hover:border-zinc-900 transition-all bg-white">
+                <div className="flex items-start justify-between mb-4">
+                  <span className="text-xs uppercase tracking-wider text-zinc-400">{project.category}</span>
+                  <ExternalLink className="w-4 h-4 text-zinc-400 group-hover:text-zinc-900 transition-colors" />
+                </div>
+                <h3 className="text-xl font-medium mb-2">{project.title}</h3>
+                <p className="text-zinc-600 text-sm mb-4 leading-relaxed">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech, i) => (
+                    <span key={i} className="px-2 py-1 text-xs bg-zinc-100 text-zinc-600 rounded">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Research & Writing */}
+      <section id="research" className="py-20 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-sm uppercase tracking-wider text-zinc-500 mb-12">Research & Writing</h2>
+          <div className="space-y-8">
+            <div className="border-l-2 border-zinc-900 pl-6">
+              <h3 className="text-2xl font-medium mb-3">Chaos Theory & Quantum Duality</h3>
+              <p className="text-zinc-600 mb-4 leading-relaxed">
+                Independent research exploring chaos theory applications in classical physics, 
+                working toward unified perspectives with quantum duality. 
+                9 months of dedicated research culminating in a comprehensive academic paper.
+              </p>
+              <span className="text-sm text-zinc-500">Research Paper • 2024-25</span>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 pt-8">
+              {writings.slice(0, 2).map((writing, idx) => (
+                <div key={idx} className="border border-zinc-200 rounded-lg p-6">
+                  <h3 className="font-medium mb-2">{writing.title}</h3>
+                  <p className="text-sm text-zinc-600">{writing.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-16 pt-16 border-t border-zinc-200">
+            <h3 className="text-sm uppercase tracking-wider text-zinc-500 mb-6">Skills & Expertise</h3>
+            <div className="grid md:grid-cols-4 gap-8">
+              <div>
+                <div className="text-sm font-medium mb-3">Security</div>
+                <div className="text-sm text-zinc-600 space-y-1">
+                  <div>Penetration Testing</div>
+                  <div>Web Security</div>
+                  <div>API Exploitation</div>
+                  <div>OSINT</div>
+                </div>
+              </div>
+              <div>
+                <div className="text-sm font-medium mb-3">Development</div>
+                <div className="text-sm text-zinc-600 space-y-1">
+                  <div>Python</div>
+                  <div>Rust</div>
+                  <div>React/Next.js</div>
+                  <div>Shell Scripting</div>
+                </div>
+              </div>
+              <div>
+                <div className="text-sm font-medium mb-3">Physics</div>
+                <div className="text-sm text-zinc-600 space-y-1">
+                  <div>Classical Mechanics</div>
+                  <div>Chaos Theory</div>
+                  <div>Numerical Simulation</div>
+                  <div>Metaphysics</div>
+                </div>
+              </div>
+              <div>
+                <div className="text-sm font-medium mb-3">Tools</div>
+                <div className="text-sm text-zinc-600 space-y-1">
+                  <div>Burp Suite</div>
+                  <div>Nmap</div>
+                  <div>Linux</div>
+                  <div>Git</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-20 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="border-t border-zinc-200 pt-20">
+            <div className="max-w-2xl">
+              <h2 className="text-4xl font-medium mb-6 tracking-tight">Let's work together</h2>
+              <p className="text-zinc-600 text-lg mb-8 leading-relaxed">
+                I'm always open to discussing research collaborations, project opportunities, 
+                or mentorship. Feel free to reach out.
+              </p>
+              <a 
+                href="mailto:mradulumrao@gmail.com"
+                className="inline-flex items-center gap-2 text-lg font-medium group"
+              >
+                mradulumrao@gmail.com
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-6 border-t border-zinc-200">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex gap-6">
+              <a href="https://github.com/mradulumrao" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-zinc-900 transition-colors">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="https://linkedin.com/in/mradulumrao" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-zinc-900 transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="https://instagram.com/mradulumrao" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-zinc-900 transition-colors">
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
+            <div className="text-sm text-zinc-500">
+              © 2025 Mradul Umrao
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
