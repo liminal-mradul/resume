@@ -8,7 +8,7 @@ export default function Portfolio() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      
+
       const sections = document.querySelectorAll('section[id]');
       sections.forEach(section => {
         const rect = section.getBoundingClientRect();
@@ -112,7 +112,7 @@ export default function Portfolio() {
 
       {/* Hero */}
       <section id="hero" className="pt-32 pb-20 px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-900 text-white text-xs rounded-full mb-6">
               <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
@@ -122,7 +122,7 @@ export default function Portfolio() {
               Student researcher exploring the intersection of physics, security, and computation
             </h1>
             <p className="text-xl text-zinc-600 mb-8 leading-relaxed">
-              3 years of hands-on experience in cybersecurity and development. 
+              3 years of hands-on experience in cybersecurity and development.
               Currently preparing for IMO and IOI while building communities and mentoring the next generation.
             </p>
             <div className="flex items-center gap-4 text-sm text-zinc-600">
@@ -134,6 +134,16 @@ export default function Portfolio() {
                 <Calendar className="w-4 h-4" />
                 5 years enthusiast
               </div>
+            </div>
+          </div>
+          <div className="order-first md:order-last flex justify-center md:justify-end">
+            <div className="relative">
+              <div className="absolute inset-0 bg-zinc-200 rounded-2xl rotate-6"></div>
+              <img
+                src="/profile.jpg"
+                alt="Mradul Umrao"
+                className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl shadow-xl transition-all duration-500"
+              />
             </div>
           </div>
         </div>
@@ -205,11 +215,11 @@ export default function Portfolio() {
             <div className="border-l-2 border-zinc-900 pl-6">
               <h3 className="text-2xl font-medium mb-3">Chaos Theory & Quantum Duality</h3>
               <p className="text-zinc-600 mb-4 leading-relaxed">
-                Independent research exploring chaos theory applications in classical physics, 
-                working toward unified perspectives with quantum duality. 
+                Independent research exploring chaos theory applications in classical physics,
+                working toward unified perspectives with quantum duality.
                 9 months of dedicated research culminating in a comprehensive academic paper.
               </p>
-              <span className="text-sm text-zinc-500">Research Paper â€¢ 2024-25</span>
+              <span className="text-sm text-zinc-500">Research Paper • 2024-25</span>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 pt-8">
@@ -273,10 +283,10 @@ export default function Portfolio() {
             <div className="max-w-2xl">
               <h2 className="text-4xl font-medium mb-6 tracking-tight">Let's work together</h2>
               <p className="text-zinc-600 text-lg mb-8 leading-relaxed">
-                I'm always open to discussing research collaborations, project opportunities, 
+                I'm always open to discussing research collaborations, project opportunities,
                 or mentorship. Feel free to reach out.
               </p>
-              <a 
+              <a
                 href="mailto:mradulumrao@gmail.com"
                 className="inline-flex items-center gap-2 text-lg font-medium group"
               >
@@ -304,11 +314,11 @@ export default function Portfolio() {
               </a>
             </div>
             <div className="text-sm text-zinc-500">
-              Â© 2025 Mradul Umrao
+              © 2025 Mradul Umrao
             </div>
           </div>
         </div>
       </footer>
     </div>
   );
-      }
+}
